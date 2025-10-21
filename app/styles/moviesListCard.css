@@ -1,0 +1,30 @@
+.card {
+    background-color: #1f1f1f;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 0.5rem;
+}
+
+.card h5 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.d-flex.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
