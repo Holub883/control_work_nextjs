@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { discoverMovies, getGenres } from './api/api';
 import MoviesList from './components/MoviesList';
-import './styles/moviesPage.css';
-
 type Props = {
     searchParams?: { [key: string]: string | string[] | undefined };
 };
@@ -20,14 +18,12 @@ export default async function Page({ searchParams }: Props) {
 
     return (
         <main className="movies-page">
-
-
             <div className="genres-filter">
                 <Link href={`/?${new URLSearchParams({ ...(query ? { query } : {}) }).toString()}`} className={!genre ? 'active' : ''}>
                     All
                 </Link>
 
-                {genres.map(g=> (
+                {genres?.map(g=> (
                     <Link
                         key={g.id}
                         href={`/?${new URLSearchParams({

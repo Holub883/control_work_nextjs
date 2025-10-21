@@ -1,16 +1,23 @@
 import { notFound } from 'next/navigation';
 import PosterPreview from '../../components/PosterPreview';
-import { getMovieDetails, MovieDetails } from '../../api/api';
+import { getMovieDetails} from '../../api/api';
+import {IMovieDetails} from "@/app/models/Movietype";
 import '../../styles/movieDetails.css';
+import {Metadata} from "next";
 
 type Props = {
     params: { id: string };
 };
-
+export const generateMetadata = async ({ params }:{params:{id:string}}):Promise<Metadata> => {
+    const {id} = params;
+    return {
+        title: `User page title `+id,
+    };
+};
 export default async function MoviePage({ params }: Props) {
     const movieId = Number(params.id);
 
-    let movie: MovieDetails | null = null;
+    let movie: IMovieDetails | null = null;
     try {
         movie = await getMovieDetails(movieId);
     } catch (err) {

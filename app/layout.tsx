@@ -1,10 +1,12 @@
+import {Metadata} from "next";
 import "./globals.css";
 import Header from "./components/Header";
+import './styles/moviesPage.css';
 
 
-export const metadata = {
+export const metadata:Metadata = {
     title: "Movies App",
-    description: "Control work migrated to Next.js",
+    description: "Control work",
 };
 
 

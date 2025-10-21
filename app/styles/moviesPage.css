@@ -14,11 +14,9 @@
 }
 
 .genres-filter button {
-    background-color: #333;
     border: none;
     padding: 0.5rem 1rem;
-    border-radius: 20px;
-    color: #fff;
+    color: #ffffff;
     cursor: pointer;
     transition: all 0.2s ease;
 }

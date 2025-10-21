@@ -1,3 +1,5 @@
+import {IMovieDetails} from "@/app/models/Movietype";
+
 const BASE_URL = 'https://api.themoviedb.org/3';
 const BEARER_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MjBlOGU1NWM1ZjY4ZjVkMGIwMTZlNWNkZmZhYTU2MSIsIm5iZiI6MTc1OTA3ODI5NS4yODE5OTk4LCJzdWIiOiI2OGQ5Njc5NzBjZWY3MTdjOTJiNDE1OTkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.maRNwhtt-FFMCCzJ46Clb8uIY16neGM55NS3IpnQHks';
 
@@ -7,7 +9,7 @@ async function fetchJson(url: string) {
             Authorization: `Bearer ${BEARER_TOKEN}`,
             'Content-Type': 'application/json',
         },
-        next: { revalidate: 60 }, // кешування на 60 секунд
+        next: { revalidate: 60 },
     });
 
     if (!res.ok) {
@@ -19,20 +21,9 @@ async function fetchJson(url: string) {
     return res.json();
 }
 
-export type MovieDetails = {
-    id: number;
-    title: string;
-    overview: string;
-    poster_path: string | null;
-    release_date: string;
-    vote_average: number;
-    genres: { id: number; name: string }[];
-};
-
-export async function getMovieDetails(movieId: number): Promise<MovieDetails> {
+export async function getMovieDetails(movieId: number): Promise<IMovieDetails> {
     return fetchJson(`${BASE_URL}/movie/${movieId}?language=en-US`);
 }
-
 export async function discoverMovies(params: {
     page?: number;
     with_genres?: string;

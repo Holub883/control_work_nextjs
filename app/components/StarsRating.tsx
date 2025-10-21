@@ -1,4 +1,3 @@
-// app/components/StarsRating.tsx
 import '../styles/stars.css';
 
 export default function StarsRating({ rating }: { rating: number }) {

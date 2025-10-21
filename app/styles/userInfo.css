@@ -9,12 +9,10 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-image: url('/avatar-placeholder.png'); /* можна замінити на реальну */
     background-size: cover;
     background-position: center;
     border: 2px solid #e50914;
 }
-
 .username {
     font-weight: 500;
     color: #fff;
